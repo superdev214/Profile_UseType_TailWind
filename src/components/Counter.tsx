@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect} from "react";
 
  const  Counter = (props:any)  =>{
-  const [{startValue, flag},setStartValue] = useState({startValue:0,flag:"true"});
+  const [{startValue , flag },setStartValue] = useState<{startValue: number, flag: boolean}>({startValue:0,flag:true});
  
   const { ref, inView } = useInView({
     /* Optional options */
@@ -23,8 +23,9 @@ import { useState, useEffect} from "react";
   });
 
   useEffect(() => {
-    if (inView && flag === "true") {
-        setStartValue({startValue:0,flag:"false"});
+
+    if (inView && flag === true) {
+        setStartValue({startValue:0,flag:false});
    
         // start the count up
       } else {
